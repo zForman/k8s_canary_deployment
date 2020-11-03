@@ -1,0 +1,12 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: my-canary-deployment-1-ingress
+spec:
+ rules:
+  - host: localhost
+    http:
+      paths:
+      - backend:
+          serviceName: my-canary-deployment-1-svc
+          servicePort: 5000

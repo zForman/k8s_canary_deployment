@@ -1,0 +1,15 @@
+apiVersion: networking.k8s.io/v1beta1
+kind: Ingress
+metadata:
+  name: my-canary-deployment-2-ingress
+  annotations:
+    nginx.ingress.kubernetes.io/canary: "true"
+    nginx.ingress.kubernetes.io/canary-weight: "40"
+spec:
+ rules:
+  - host: localhost
+    http:
+      paths:
+      - backend:
+          serviceName: my-canary-deployment-2-svc
+          servicePort: 5000
