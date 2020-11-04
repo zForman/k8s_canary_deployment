@@ -3,7 +3,8 @@ kind: Ingress
 metadata:
   name: my-canary-deployment-2-ingress
   annotations:
-    nginx.ingress.kubernetes.io/canary: "true"
+    # nginx.ingress.kubernetes.io/canary: "true"
+    nginx.ingress.kubernetes.io/canary-by-header: always
     nginx.ingress.kubernetes.io/canary-weight: "40"
 spec:
  rules:
