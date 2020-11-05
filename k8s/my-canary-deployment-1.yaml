@@ -7,6 +7,7 @@ spec:
   selector:
     matchLabels:
       app: my-canary-deployment
+      version: v0.1
   template:
     metadata:
       name:  my-canary-deployment-pod-1

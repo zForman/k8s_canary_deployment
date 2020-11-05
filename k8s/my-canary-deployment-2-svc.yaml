@@ -12,4 +12,5 @@ spec:
     targetPort: 5000
   selector:
     app: my-canary-deployment
+    version: v0.2
   type: LoadBalancer

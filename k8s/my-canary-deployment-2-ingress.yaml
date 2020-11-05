@@ -3,14 +3,17 @@ kind: Ingress
 metadata:
   name: my-canary-deployment-2-ingress
   annotations:
-    # nginx.ingress.kubernetes.io/canary: "true"
-    nginx.ingress.kubernetes.io/canary-by-header: always
+    kubernetes.io/ingress.class: nginx
+    nginx.ingress.kubernetes.io/canary: "true"
+    nginx.ingress.kubernetes.io/canary-by-header: canary
     nginx.ingress.kubernetes.io/canary-weight: "40"
+
 spec:
  rules:
   - host: localhost
     http:
       paths:
-      - backend:
+      - path: /
+        backend:
           serviceName: my-canary-deployment-2-svc
           servicePort: 5000
