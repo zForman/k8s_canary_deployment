@@ -1,0 +1,1 @@
+for n in {1..50}; do curl  -H "canary: always" -H "HOST: localhost" -X GET http://localhost/; echo ; done
